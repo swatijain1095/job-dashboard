@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { getFormattedTime } from "../utils";
 
 type JobItemProps = {
   jobId: number;
@@ -29,51 +30,25 @@ const JobItem = ({ jobId }: JobItemProps) => {
     setIsLoading(false);
   };
 
-  const getFormattedTime = () => {
-    // dd/mm/yyyy time:AM/PM
-    const dateObj = new Date(time);
-    const day = dateObj.getDate();
-    const month = dateObj.getMonth();
-    const year = dateObj.getFullYear();
-    const hours = dateObj.getHours();
-    const seconds = dateObj.getSeconds();
-    const minutes = dateObj.getMinutes();
-
-    console.log({
-      day,
-      month,
-      year,
-      hours,
-      minutes,
-      seconds,
-    });
-    let rest;
-    if (hours < 12) {
-      rest = "AM";
-    } else if (hours > 12) {
-      rest = "PM";
-    }
-    let hourss = hours % 12;
-
-    const timeDisplay = `${day}-${month}-${year}, ${
-      hourss || 12
-    }:${minutes}:${seconds} ${rest}`;
-
-    return timeDisplay;
-  };
   useEffect(() => {
     fetchJobDetails();
   }, []);
-  //
-  return isLoading ? (
-    <span>Loading</span>
-  ) : (
+
+  return (
     <li>
-      <h4>{title}</h4>
-      <p>
-        <span>{`by ${by}`}</span>
-        <span>{getFormattedTime()}</span>
-      </p>
+      {" "}
+      {isLoading ? (
+        "Loading"
+      ) : (
+        <>
+          {" "}
+          <h4>{title}</h4>
+          <p>
+            <span>{`by ${by}`}</span>
+            <span>{getFormattedTime(time)}</span>
+          </p>
+        </>
+      )}
     </li>
   );
 };

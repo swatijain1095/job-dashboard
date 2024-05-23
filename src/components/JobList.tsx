@@ -30,11 +30,11 @@ const JobList = () => {
   // [20] => () => [6] => () => [12] => () => [18]
 
   return (
-    <div className="job-list">
+    <div data-testid="job-list" className="job-list">
       {isLoading ? (
         "Loading"
       ) : (
-        <ul>
+        <ul data-testid="rendered-list">
           {jobIds.map((jobId) => (
             <JobItem key={jobId} jobId={jobId} />
           ))}
