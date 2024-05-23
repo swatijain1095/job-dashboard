@@ -1,4 +1,67 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 .App {
   font-family: sans-serif;
-  text-align: center;
+  /* text-align: center; */
+  background-color: antiquewhite;
+}
+h1 {
+  color: orange;
+}
+
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.job-list {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  gap: 10px;
+}
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+button {
+  color: white;
+  border-radius: 8px;
+  border: 1px solid orange;
+  background-color: orange;
+  height: 30px;
+  width: 100px;
+}
+
+li {
+  border: 1px solid burlywood;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 8px;
+  gap: 5px;
+  background-color: white;
+}
+
+h4,
+p {
+  margin: 0;
+}
+h4 {
+  font-size: larger;
+}
+
+p {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  font-size: medium;
 }
